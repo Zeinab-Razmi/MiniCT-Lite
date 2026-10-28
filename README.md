@@ -6,10 +6,6 @@ MiniCT-Lite is an educational C++17 project that loads a grayscale CT image in D
 |:---:|:---:|:---:|
 | ![Raw CT](results/sample-results/2_raw.png) | ![Corrected CT](results/sample-results/3_corrected.png) | ![Denoised CT](results/sample-results/4_denoised.png) |
 
-> Educational project, not a medical device. It must not be used for diagnosis or patient management.
-
-The README includes visual results for both the sample CT image and the synthetic phantom. Run the program in each mode and commit the generated PNGs to the matching `results/` folders for them to display on GitHub.
-
 
 ## 1. Running the Project
 
