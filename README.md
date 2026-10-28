@@ -145,7 +145,7 @@ For CT images, the resulting values may represent Hounsfield units, depending on
 The program then applies windowing to map the values to a normalized display range:
 
 $$
-I_{\mathrm{display}} = \operatorname{clamp}\left( \frac{I_{\mathrm{rescaled}} - (C - W/2)}{W},\ 0,\ 1 \right)
+I_{\mathrm{display}} = \mathrm{clamp}\left( \frac{I_{\mathrm{rescaled}} - (C - W/2)}{W},\ 0,\ 1 \right)
 $$
 
 where $C$ is the window center and $W$  is the window width.
@@ -258,9 +258,7 @@ It is simple but can blur edges and small structures.
 
 The median filter replaces each pixel with the median of the neighborhood values:
 
-$$
-I_{\mathrm{median}}(x,y) = \operatorname{median}\{\, I(x+i,\ y+j) \,\}
-$$
+$$I_{\mathrm{median}}(x,y) = \mathrm{median}\lbrace\ I(x+i,\ y+j) \\rbrace$$
 
 It is particularly useful for isolated extreme-value noise, such as salt-and-pepper noise, while often preserving edges better than a mean filter.
 
@@ -296,7 +294,7 @@ The program evaluates intermediate results against the reference image using mea
 ### Mean squared error
 
 $$
-\operatorname{MSE}(T,I) = \frac{1}{N} \sum_{i=1}^{N} (T_i - I_i)^2
+\mathrm{MSE}(T,I) = \frac{1}{N} \sum_{i=1}^{N} (T_i - I_i)^2
 $$
 
 where $T$ is the reference image, $I$ is the processed image, and $N$ is the number of pixels. Lower MSE means a smaller average squared difference from the reference.
@@ -304,7 +302,7 @@ where $T$ is the reference image, $I$ is the processed image, and $N$ is the num
 ### Peak signal-to-noise ratio
 
 $$
-\operatorname{PSNR}(T,I) = 10 \log_{10}\left( \frac{P^2}{\operatorname{MSE}(T,I)} \right)
+\mathrm{PSNR}(T,I) = 10 \log_{10}\left( \frac{P^2}{\mathrm{MSE}(T,I)} \right)
 $$
 
 where $P$ is the peak value of the image's intensity scale. The program uses $P = 1$, consistent with the normalized range 0 to 1. Higher PSNR means lower pixel-wise error relative to the reference. For identical images the PSNR is infinite.
