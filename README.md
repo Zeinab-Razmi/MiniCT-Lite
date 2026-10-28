@@ -142,15 +142,10 @@ $$
 where $S$ is the rescale slope and $B$ is the rescale intercept.
 
 For CT images, the resulting values may represent Hounsfield units, depending on the modality and the image's metadata.
-
 The program then applies windowing to map the values to a normalized display range:
 
 $$
-I_{\mathrm{display}} =
-\operatorname{clamp}\left(
-\frac{I_{\mathrm{rescaled}}-(C-W/2)}{W},
-0,1
-\right)
+I_{\mathrm{display}} = \operatorname{clamp}\left( \frac{I_{\mathrm{rescaled}} - (C - W/2)}{W},\ 0,\ 1 \right)
 $$
 
 where $C$ is the window center and $W$  is the window width.
